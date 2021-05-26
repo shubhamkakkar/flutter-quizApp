@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/components/answerButton/AnswerButton.dart';
 
 import 'package:quiz_app/components/question/Querstion.dart';
 
@@ -12,7 +13,6 @@ class _QuizAppState extends State<QuizApp> {
     setState(() {
       _questionIndex = index;
     });
-    print(index);
   }
 
   @override
@@ -25,12 +25,8 @@ class _QuizAppState extends State<QuizApp> {
       body: Column(
         children: [
           Question(questions[_questionIndex]),
-          ElevatedButton(
-              onPressed: () => _onPressAnswerHandler(0),
-              child: Text('Answer 1')),
-          ElevatedButton(
-              onPressed: () => _onPressAnswerHandler(1),
-              child: Text('Answer 2')),
+          AnswerButton('Answer 1', () => _onPressAnswerHandler(0)),
+          AnswerButton('Answer 2', () => _onPressAnswerHandler(1)),
         ],
       ),
     ));
